@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 10 - Buffon Probability Simulation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Task 10 - Buffon's Needle Probabilities</h1>
+      <p class="subtitle">Exact formulas and Monte Carlo estimates on the sample space Ω = [0, d/2] × [0, π/2].</p>
+
+      <section class="panel controls">
+        <label for="needleLength">Needle length (L)</label>
+        <input id="needleLength" type="number" min="0.01" step="0.01" value="1" />
+
+        <label for="lineDistance">Line distance (d)</label>
+        <input id="lineDistance" type="number" min="0.01" step="0.01" value="1.5" />
+
+        <label for="trialCount">Number of throws</label>
+        <input id="trialCount" type="number" min="1" step="1" value="5000" />
+
+        <button id="runBtn" type="button">Run simulation</button>
+      </section>
+
+      <section class="panel" id="summary"></section>
+
+      <section class="panel">
+        <h2>Event probabilities</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Rule</th>
+              <th>Exact probability</th>
+              <th>Observed frequency</th>
+            </tr>
+          </thead>
+          <tbody id="resultBody"></tbody>
+        </table>
+      </section>
+
+      <section class="panel visual-card">
+        <h2>Latest throw</h2>
+        <canvas id="scene" width="860" height="260"></canvas>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
