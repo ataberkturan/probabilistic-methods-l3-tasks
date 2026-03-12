@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 8 - Card Probability Simulation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Task 8 - Card Probability Simulation</h1>
+      <p class="subtitle">Understand the deck and ordered draws first, then compare exact probabilities with Monte Carlo estimates.</p>
+
+      <section class="panel controls">
+        <label for="mode">Draw mode</label>
+        <select id="mode">
+          <option value="one">1 draw</option>
+          <option value="with">2 draws with replacement</option>
+          <option value="without" selected>2 draws without replacement</option>
+        </select>
+
+        <label for="trialCount">Number of trials</label>
+        <input id="trialCount" type="number" min="1" step="1" value="10000" />
+
+        <button id="runBtn" type="button">Run simulation</button>
+      </section>
+
+      <section class="panel">
+        <h2>Deck and sample-space idea</h2>
+        <p class="panel-note" id="spaceInfo"></p>
+        <div class="chip-grid" id="deckView"></div>
+        <h3>Example ordered outcomes</h3>
+        <div class="example-grid" id="exampleOutcomes"></div>
+      </section>
+
+      <details class="panel summary-panel">
+        <summary>Open summary results</summary>
+        <div id="summary"></div>
+      </details>
+
+      <section class="panel">
+        <h2>Event probabilities</h2>
+        <p class="panel-note">Each row shows what the event means, example good outcomes, how many good outcomes exist, and how the simulation compares with the exact answer.</p>
+        <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>What it means / examples</th>
+              <th>How many good outcomes</th>
+              <th>Exact probability</th>
+              <th>Observed result</th>
+            </tr>
+          </thead>
+          <tbody id="resultBody"></tbody>
+        </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

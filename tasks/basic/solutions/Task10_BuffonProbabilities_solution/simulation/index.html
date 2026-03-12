@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 10 - Buffon Probability Simulation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Task 10 - Buffon's Needle Probabilities</h1>
+      <p class="subtitle">Understand the geometric model first, then compare exact formulas with Monte Carlo estimates.</p>
+
+      <section class="panel controls">
+        <label for="needleLength">Needle length (L)</label>
+        <input id="needleLength" type="number" min="0.01" step="0.01" value="1" />
+
+        <label for="lineDistance">Line distance (d)</label>
+        <input id="lineDistance" type="number" min="0.01" step="0.01" value="1.5" />
+
+        <label for="trialCount">Number of throws</label>
+        <input id="trialCount" type="number" min="1" step="1" value="5000" />
+
+        <button id="runBtn" type="button">Run simulation</button>
+      </section>
+
+      <section class="panel">
+        <h2>Model and variables</h2>
+        <p class="panel-note" id="spaceInfo"></p>
+        <div class="chip-grid">
+          <span class="chip">L = needle length</span>
+          <span class="chip">d = distance between lines</span>
+          <span class="chip">X = center distance to nearest line</span>
+          <span class="chip">theta = angle of the needle</span>
+        </div>
+        <div class="example-grid">
+          <div class="example-card">
+            <strong>Sample-space idea</strong>
+            <span>One throw is one point (X, theta) inside the rectangle Ω = [0, d/2] × [0, pi/2].</span>
+          </div>
+          <div class="example-card">
+            <strong>Hit rule</strong>
+            <span>The needle hits a line when X <= (L/2) sin(theta).</span>
+          </div>
+        </div>
+      </section>
+
+      <details class="panel summary-panel">
+        <summary>Open summary results</summary>
+        <div id="summary"></div>
+      </details>
+
+      <section class="panel">
+        <h2>Event probabilities</h2>
+        <p class="panel-note">Each row explains what the event means, gives the exact probability, and shows what the simulation observed.</p>
+        <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>What it means</th>
+              <th>Exact probability</th>
+              <th>Observed result</th>
+            </tr>
+          </thead>
+          <tbody id="resultBody"></tbody>
+        </table>
+        </div>
+      </section>
+
+      <section class="panel visual-card">
+        <h2>Latest throw</h2>
+        <canvas id="scene" width="860" height="260"></canvas>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

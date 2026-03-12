@@ -1,0 +1,156 @@
+:root {
+  --bg0: #f2efe7;
+  --bg1: #e3dccf;
+  --panel: #fffdf8;
+  --ink: #1f2937;
+  --muted: #5b6470;
+  --accent: #9a3412;
+  --accent-2: #b45309;
+  --line: #d6d3cc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(180, 83, 9, 0.18), transparent 65%),
+    radial-gradient(900px 400px at 100% 0%, rgba(154, 52, 18, 0.14), transparent 70%),
+    linear-gradient(180deg, var(--bg1), var(--bg0));
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.hero h1 {
+  margin: 0 0 6px;
+  font-size: clamp(1.6rem, 3.6vw, 2.3rem);
+}
+
+.hero p {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 12px;
+  box-shadow: 0 8px 20px rgba(31, 41, 55, 0.06);
+}
+
+.panel-note {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.chip {
+  padding: 0.5rem 0.72rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fffaf3;
+  font-weight: 600;
+}
+
+.summary-panel summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: end;
+}
+
+label {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+select,
+input,
+button {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  padding: 10px 11px;
+  font-size: 0.97rem;
+}
+
+button {
+  grid-column: span 2;
+  border: none;
+  color: #fff;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(154, 52, 18, 0.25);
+}
+
+.summary {
+  color: var(--muted);
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 9px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+th {
+  background: #f5f1e8;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 720px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    grid-column: span 1;
+  }
+}

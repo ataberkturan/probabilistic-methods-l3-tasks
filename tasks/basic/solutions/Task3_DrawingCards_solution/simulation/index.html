@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3 - Drawing Cards Simulation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Task 3 - Drawing Cards Simulation</h1>
+      <p class="subtitle">Understand the deck and ordered draws first, then compare observed frequencies with the theoretical ones.</p>
+
+      <section class="controls card">
+        <label for="mode">Draw mode</label>
+        <select id="mode">
+          <option value="with">With replacement</option>
+          <option value="without">Without replacement</option>
+        </select>
+
+        <label for="trials">Number of trials</label>
+        <input id="trials" type="number" min="1" step="1" value="10000" />
+
+        <button id="runBtn" type="button">Run simulation</button>
+      </section>
+
+      <section class="card">
+        <h2>Deck and sample-space idea</h2>
+        <p class="panel-note" id="spaceInfo"></p>
+        <div class="chip-grid" id="deckView"></div>
+        <h2>Example ordered outcomes</h2>
+        <div class="example-grid" id="exampleOutcomes"></div>
+      </section>
+
+      <details class="card summary-panel">
+        <summary>Open summary results</summary>
+        <div id="summary"></div>
+      </details>
+
+      <section class="card">
+        <h2>Top observed outcomes</h2>
+        <p class="panel-note">These are the most frequent ordered pairs from the simulation. Compare them with the same theoretical frequency for each elementary outcome.</p>
+        <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Outcome (ordered)</th>
+              <th>Count</th>
+              <th>Observed frequency</th>
+              <th>Theoretical frequency</th>
+            </tr>
+          </thead>
+          <tbody id="resultBody"></tbody>
+        </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
