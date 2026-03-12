@@ -12,37 +12,43 @@ function countValue(week, value) {
 const EVENTS = [
   {
     name: "A",
-    rule: "Saturday = S and Sunday = S",
+    description: "Weekend is sunny",
+    example: "Sat=S, Sun=S",
     exact: 1 / 9,
     test: (week) => week[5] === "S" && week[6] === "S"
   },
   {
     name: "B",
-    rule: "Wednesday, Thursday, Friday are all R",
+    description: "Wednesday, Thursday, Friday are all rainy",
+    example: "Wed=R, Thu=R, Fri=R",
     exact: 1 / 27,
     test: (week) => week[2] === "R" && week[3] === "R" && week[4] === "R"
   },
   {
     name: "C",
-    rule: "at least one sunny day",
+    description: "At least one sunny day",
+    example: "The week contains at least one S",
     exact: 1 - Math.pow(2 / 3, 7),
     test: (week) => week.includes("S")
   },
   {
     name: "D",
-    rule: "no rainy day",
+    description: "No rainy day",
+    example: "All 7 days are only S or C",
     exact: Math.pow(2 / 3, 7),
     test: (week) => !week.includes("R")
   },
   {
     name: "E",
-    rule: "exactly two sunny days",
+    description: "Exactly two sunny days",
+    example: "The week contains exactly two S values",
     exact: 224 / 729,
     test: (week) => countValue(week, "S") === 2
   },
   {
     name: "F",
-    rule: "exactly one rainy day",
+    description: "Exactly one rainy day",
+    example: "The week contains exactly one R value",
     exact: 448 / 729,
     test: (week) => countValue(week, "R") === 1
   }
@@ -62,6 +68,35 @@ function runSimulation() {
     });
   }
 
+  const stateLegend = document.getElementById("stateLegend");
+  stateLegend.innerHTML = "";
+  [
+    "S = Sunny",
+    "C = Cloudy",
+    "R = Rainy"
+  ].forEach((item) => {
+    const chip = document.createElement("span");
+    chip.className = "chip";
+    chip.textContent = item;
+    stateLegend.appendChild(chip);
+  });
+
+  document.getElementById("spaceInfo").textContent =
+    "One weekly outcome means one full ordered 7-day sequence from Monday to Sunday. Each day is independent, and each day has probability 1/3 for S, C, and R.";
+
+  const exampleWeeks = document.getElementById("exampleWeeks");
+  exampleWeeks.innerHTML = "";
+  [
+    ["Mon=S", "Tue=C", "Wed=R", "Thu=R", "Fri=S", "Sat=C", "Sun=S"],
+    ["Mon=R", "Tue=R", "Wed=C", "Thu=S", "Fri=C", "Sat=S", "Sun=R"],
+    ["Mon=C", "Tue=C", "Wed=C", "Thu=R", "Fri=S", "Sat=S", "Sun=C"]
+  ].forEach((week, index) => {
+    const card = document.createElement("div");
+    card.className = "example-card";
+    card.innerHTML = `<strong>Example week ${index + 1}</strong><span>${week.join(", ")}</span>`;
+    exampleWeeks.appendChild(card);
+  });
+
   document.getElementById("summary").textContent =
     `Model: 7 independent days, each with probability 1/3 for S, C, and R | Simulated weeks: ${trials} | Latest week: ${latestWeek.map((day, index) => `${DAY_NAMES[index]}=${day}`).join(", ")}`;
 
@@ -73,9 +108,9 @@ function runSimulation() {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${event.name}</td>
-      <td>${event.rule}</td>
+      <td>${event.description}<br>Example: ${event.example}</td>
       <td>${event.exact.toFixed(6)}</td>
-      <td>${observed.toFixed(6)}</td>
+      <td>${counts[index]} / ${trials} = ${observed.toFixed(6)}</td>
     `;
     body.appendChild(row);
   });

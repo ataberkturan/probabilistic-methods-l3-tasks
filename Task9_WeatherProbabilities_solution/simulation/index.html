@@ -9,7 +9,7 @@
   <body>
     <main class="container">
       <h1>Task 9 - Weekly Weather Probability Simulation</h1>
-      <p class="subtitle">7 independent days, each day: S, C, or R with probability 1/3.</p>
+      <p class="subtitle">Understand the 7-day weather model first, then compare exact probabilities with Monte Carlo estimates.</p>
 
       <section class="panel controls">
         <label for="trialCount">Number of simulated weeks</label>
@@ -18,21 +18,35 @@
         <button id="runBtn" type="button">Run simulation</button>
       </section>
 
-      <section class="panel" id="summary"></section>
+      <section class="panel">
+        <h2>Weekly model</h2>
+        <p class="panel-note" id="spaceInfo"></p>
+        <div class="chip-grid" id="stateLegend"></div>
+        <h3>Example weekly outcomes</h3>
+        <div class="example-grid" id="exampleWeeks"></div>
+      </section>
+
+      <details class="panel summary-panel">
+        <summary>Open summary results</summary>
+        <div id="summary"></div>
+      </details>
 
       <section class="panel">
         <h2>Event probabilities</h2>
+        <p class="panel-note">Each row shows what the event means, an example of a week that belongs to the event, the exact probability, and the simulation result.</p>
+        <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>Event</th>
-              <th>Rule</th>
+              <th>What it means / example</th>
               <th>Exact probability</th>
-              <th>Observed frequency</th>
+              <th>Observed result</th>
             </tr>
           </thead>
           <tbody id="resultBody"></tbody>
         </table>
+        </div>
       </section>
     </main>
 

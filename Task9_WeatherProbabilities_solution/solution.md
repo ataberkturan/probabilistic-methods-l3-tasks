@@ -44,30 +44,46 @@ Double-check: all probabilities use the independent 7-day model correctly, compl
 
 ## How to solve this problem for dummies
 
-Think of each day as one of 3 weather types:
+This task is about weather events during one full week.
 
-- S
-- C
-- R
+An event means a condition about the week.
 
-Each day is independent, so what happens on one day does not change the next day.
+For example:
+
+- `weekend is sunny` means Saturday and Sunday are both sunny
+- `no rainy day` means none of the 7 days is rainy
+- `exactly two sunny days` means only 2 of the 7 days are sunny
+
+Each day can be:
+
+- `S` = sunny
+- `C` = cloudy
+- `R` = rainy
+
+Each day is independent. That means one day does not change the probability of the next day.
 
 Main ideas:
 
-1. For fixed days, multiply probabilities.
-2. For "at least one", use the complement.
-3. For "exactly k days", use combinations.
+1. If the event talks about fixed days, multiply probabilities.
+2. If the event says `at least one`, it is often easier to use the opposite event first.
+3. If the event says `exactly k days`, first choose which days those are.
 
 Examples:
 
-- Event A: both weekend days are sunny.
-  So `P(A) = (1/3) x (1/3) = 1/9`.
+- Event `A`:
+  weekend is sunny
+  means Saturday = S and Sunday = S
+  so `P(A) = (1/3) x (1/3) = 1/9`
 
-- Event C: at least one sunny day.
-  It is easier to compute `no sunny day`, then subtract from 1.
-  So `P(C) = 1 - (2/3)^7`.
+- Event `C`:
+  at least one sunny day
+  it is easier to first find `no sunny day`
+  one day is not sunny with probability `2/3`
+  so `P(C) = 1 - (2/3)^7`
 
-- Event E: exactly two sunny days.
-  First choose which 2 days are sunny, then multiply the probabilities.
+- Event `E`:
+  exactly two sunny days
+  first choose which 2 days are sunny
+  then multiply by the probability that those 2 are sunny and the other 5 are not sunny
 
-That is the main pattern for all events in this task.
+So the main job in this task is to understand what the event says about the week, then use multiplication, complements, or combinations in the right place.
