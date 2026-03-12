@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4 - Weekly Weather Simulation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Task 4 - Weekly Weather Simulation</h1>
+      <p class="subtitle">States: S (Sunny), C (Cloudy), R (Rainy)</p>
+
+      <section class="panel controls">
+        <label for="horizon">Observation horizon</label>
+        <select id="horizon">
+          <option value="1">1 day</option>
+          <option value="2">2 days</option>
+          <option value="7" selected>7 days</option>
+        </select>
+
+        <label for="trials">Number of trials</label>
+        <input id="trials" type="number" min="1" step="1" value="5000" />
+
+        <button id="runBtn" type="button">Run simulation</button>
+      </section>
+
+      <section class="panel" id="summary"></section>
+
+      <section class="panel">
+        <h2>Top observed outcomes</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Outcome sequence</th>
+              <th>Count</th>
+              <th>Observed frequency</th>
+              <th>Theoretical frequency</th>
+            </tr>
+          </thead>
+          <tbody id="resultBody"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
