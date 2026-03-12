@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin Tossing Simulation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Task 1 - Coin Tossing Simulation</h1>
+      <p class="subtitle">Ordered outcomes for 1, 2, or 3 tosses of a fair coin</p>
+
+      <section class="controls">
+        <label for="tossCount">Number of tosses</label>
+        <select id="tossCount">
+          <option value="1">1 toss</option>
+          <option value="2">2 tosses</option>
+          <option value="3" selected>3 tosses</option>
+        </select>
+
+        <label for="trialCount">Number of trials</label>
+        <input id="trialCount" type="number" min="1" step="1" value="1000" />
+
+        <button id="runBtn" type="button">Run simulation</button>
+      </section>
+
+      <section class="summary" id="summary"></section>
+
+      <section class="results">
+        <table>
+          <thead>
+            <tr>
+              <th>Elementary Outcome</th>
+              <th>Count</th>
+              <th>Observed Frequency</th>
+              <th>Theoretical Frequency</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
