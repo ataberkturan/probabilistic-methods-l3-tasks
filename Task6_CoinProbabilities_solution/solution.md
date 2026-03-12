@@ -40,22 +40,44 @@ Double-check: every event is written as a subset of the correct sample space, ev
 
 ## How to solve this problem for dummies
 
-The main idea is simple:
+To solve these questions, always use the same method.
 
-1. List the sample space.
-2. Count how many outcomes belong to the event.
-3. Divide by the total number of outcomes.
+First write the sample space.
 
-Because the coin is fair, all elementary outcomes are equally likely.
+- For 1 toss: `{H, T}`
+- For 2 tosses: `{(H,H), (H,T), (T,H), (T,T)}`
+- For 3 tosses: 8 ordered outcomes
 
-- For 1 toss, there are 2 outcomes.
-- For 2 tosses, there are 4 outcomes.
-- For 3 tosses, there are 8 outcomes.
+Then remember this important idea:
 
-Example:
+Because the coin is fair, every elementary outcome has the same probability.
 
-- For A2 = exactly one head, the good outcomes are `(H,T)` and `(T,H)`.
-- That gives 2 good outcomes out of 4 total.
-- So `P(A2) = 2/4 = 1/2`.
+So after you list the sample space, do these steps:
 
-You solve all the other events in the same way: count the good outcomes, then divide by the total number of possible outcomes.
+1. Find the event you want.
+2. List the outcomes that belong to that event.
+3. Count how many good outcomes there are.
+4. Divide by the total number of outcomes in the sample space.
+
+Example 1:
+
+- `A1 = heads`
+- In one toss, the good outcome is only `{H}`
+- There is 1 good outcome out of 2 total outcomes
+- So `P(A1) = 1/2`
+
+Example 2:
+
+- `A2 = exactly one head`
+- In two tosses, the good outcomes are `(H,T)` and `(T,H)`
+- There are 2 good outcomes out of 4 total outcomes
+- So `P(A2) = 2/4 = 1/2`
+
+Example 3:
+
+- `C3 = all three tosses give the same result`
+- The good outcomes are `(H,H,H)` and `(T,T,T)`
+- There are 2 good outcomes out of 8 total outcomes
+- So `P(C3) = 2/8 = 1/4`
+
+So the whole task is really about counting the correct outcomes and then dividing by the total number of equally likely outcomes.
