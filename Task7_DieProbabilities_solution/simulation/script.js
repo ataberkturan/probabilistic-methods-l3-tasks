@@ -10,9 +10,28 @@ function outcomeLabel(values) {
   return `(${values.join(",")})`;
 }
 
+function buildSampleSpace(rolls) {
+  const outcomes = [];
+
+  function walk(prefix, depth) {
+    if (depth === rolls) {
+      outcomes.push([...prefix]);
+      return;
+    }
+    for (let value = 1; value <= 6; value += 1) {
+      walk([...prefix, value], depth + 1);
+    }
+  }
+
+  walk([], 0);
+  return outcomes;
+}
+
 function getConfig(rolls) {
   if (rolls === 1) {
+    const sampleSpace = buildSampleSpace(1);
     return {
+      sampleSpace,
       sampleSpaceSize: 6,
       perOutcomeProbability: "1/6",
       events: [
@@ -24,7 +43,9 @@ function getConfig(rolls) {
   }
 
   if (rolls === 2) {
+    const sampleSpace = buildSampleSpace(2);
     return {
+      sampleSpace,
       sampleSpaceSize: 36,
       perOutcomeProbability: "1/36",
       events: [
@@ -35,7 +56,9 @@ function getConfig(rolls) {
     };
   }
 
+  const sampleSpace = buildSampleSpace(3);
   return {
+    sampleSpace,
     sampleSpaceSize: 216,
     perOutcomeProbability: "1/216",
     events: [
@@ -71,6 +94,9 @@ function runSimulation() {
   const rawTrials = Number(document.getElementById("trialCount").value);
   const trials = Number.isFinite(rawTrials) && rawTrials > 0 ? Math.floor(rawTrials) : 1;
   const config = getConfig(rolls);
+  const eventSubsets = config.events.map((event) =>
+    config.sampleSpace.filter((values) => event.test(values)).map((values) => outcomeLabel(values))
+  );
 
   const counts = new Array(config.events.length).fill(0);
   let latestOutcome = null;
@@ -83,24 +109,39 @@ function runSimulation() {
     });
   }
 
+  document.getElementById("spaceInfo").textContent =
+    `For ${rolls} roll${rolls === 1 ? "" : "s"}, there are ${config.sampleSpaceSize} equally likely ordered outcomes. Each one has probability ${config.perOutcomeProbability}.`;
+
+  const sampleSpaceEl = document.getElementById("sampleSpace");
+  sampleSpaceEl.innerHTML = "";
+  config.sampleSpace.forEach((values) => {
+    const chip = document.createElement("span");
+    chip.className = "chip";
+    chip.textContent = outcomeLabel(values);
+    sampleSpaceEl.appendChild(chip);
+  });
+
   document.getElementById("summary").textContent =
-    `Rolls: ${rolls} | Sample-space size: ${config.sampleSpaceSize} | Probability of each elementary outcome: ${config.perOutcomeProbability} | Trials: ${trials} | Latest outcome: ${outcomeLabel(latestOutcome)}`;
+    `Rolls: ${rolls} | Trials: ${trials} | Total possible outcomes: ${config.sampleSpaceSize} | Probability of each elementary outcome: ${config.perOutcomeProbability} | Latest outcome: ${outcomeLabel(latestOutcome)}`;
 
   const body = document.getElementById("resultBody");
   body.innerHTML = "";
 
   config.events.forEach((event, index) => {
     const observed = counts[index] / trials;
+    const subset = eventSubsets[index];
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${event.name}</td>
-      <td>${event.rule}</td>
-      <td>${event.exact.toFixed(4)}</td>
-      <td>${observed.toFixed(4)}</td>
+      <td>${subset.join(", ")}</td>
+      <td>${subset.length} out of ${config.sampleSpaceSize}</td>
+      <td>${event.exact.toFixed(6)}</td>
+      <td>${counts[index]} / ${trials} = ${observed.toFixed(6)}</td>
     `;
     body.appendChild(row);
   });
 }
 
 document.getElementById("runBtn").addEventListener("click", runSimulation);
+document.getElementById("rollCount").addEventListener("change", runSimulation);
 runSimulation();

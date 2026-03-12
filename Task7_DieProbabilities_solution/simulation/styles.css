@@ -39,9 +39,59 @@ h1 {
 .panel {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 1rem;
-  margin-top: 0.9rem;
+  border-radius: 16px;
+  padding: 1.05rem;
+  margin-top: 1rem;
+  box-shadow: 0 12px 28px rgba(30, 36, 51, 0.05);
+}
+
+.panel-note {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.chip {
+  padding: 0.58rem 0.78rem;
+  border-radius: 999px;
+  border: 1px solid #d9d4c6;
+  background: linear-gradient(180deg, #fffdf9 0%, #fbf7ef 100%);
+  font-size: 0.94rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.summary-panel summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent);
+  list-style: none;
+}
+
+.summary-panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary-panel summary::after {
+  content: " +";
+}
+
+.summary-panel[open] summary::after {
+  content: " -";
+}
+
+.summary-panel[open] summary {
+  margin-bottom: 0.8rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
 }
 
 .controls {
@@ -80,23 +130,52 @@ button:hover {
 
 table {
   width: 100%;
+  min-width: 980px;
   border-collapse: collapse;
 }
 
 th,
 td {
   text-align: left;
-  padding: 0.62rem;
+  padding: 0.78rem 0.7rem;
   border-bottom: 1px solid var(--line);
   vertical-align: top;
+  line-height: 1.45;
 }
 
 th {
   background: #faf4e8;
+  font-size: 0.92rem;
 }
 
 tr:last-child td {
   border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+  background: #fdfcf9;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  min-width: 330px;
+  font-family: "Consolas", "Menlo", "Monaco", monospace;
+  font-size: 0.9rem;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  min-width: 170px;
+  white-space: nowrap;
+}
+
+th:nth-child(4),
+td:nth-child(4),
+th:nth-child(5),
+td:nth-child(5) {
+  min-width: 150px;
+  white-space: nowrap;
+  font-weight: 600;
 }
 
 @media (max-width: 640px) {

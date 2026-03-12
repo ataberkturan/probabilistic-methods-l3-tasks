@@ -9,7 +9,7 @@
   <body>
     <main class="container">
       <h1>Task 7 - Die Probability Simulation</h1>
-      <p class="subtitle">Compare exact probabilities with Monte Carlo estimates.</p>
+      <p class="subtitle">See all possible outcomes first, then compare exact probabilities with Monte Carlo estimates.</p>
 
       <section class="panel controls">
         <label for="rollCount">Number of rolls</label>
@@ -25,21 +25,34 @@
         <button id="runBtn" type="button">Run simulation</button>
       </section>
 
-      <section class="panel" id="summary"></section>
+      <section class="panel">
+        <h2>All possible outcomes</h2>
+        <p class="panel-note" id="spaceInfo"></p>
+        <div class="chip-grid" id="sampleSpace"></div>
+      </section>
+
+      <details class="panel summary-panel">
+        <summary>Open summary results</summary>
+        <div id="summary"></div>
+      </details>
 
       <section class="panel">
         <h2>Event probabilities</h2>
+        <p class="panel-note">Each row shows the rule, which outcomes belong to the event, how many good outcomes there are, and how the simulation compares with the exact answer.</p>
+        <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>Event</th>
-              <th>Subset / rule</th>
+              <th>Good outcomes</th>
+              <th>How many good outcomes</th>
               <th>Exact probability</th>
-              <th>Observed frequency</th>
+              <th>Observed result</th>
             </tr>
           </thead>
           <tbody id="resultBody"></tbody>
         </table>
+        </div>
       </section>
     </main>
 

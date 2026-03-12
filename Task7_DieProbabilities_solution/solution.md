@@ -44,25 +44,40 @@ Double-check: every event is matched with the correct sample space, all elementa
 
 ## How to solve this problem for dummies
 
-The method is always the same:
+This task is about events in die rolling.
 
-1. Count all possible outcomes.
-2. Count the outcomes that satisfy the event.
-3. Divide good outcomes by total outcomes.
+An event means a group of outcomes with some condition.
+
+For example:
+
+- `even` means the result is 2, 4, or 6
+- `sum = 7` means the two rolls together must add up to 7
+- `both equal` means both rolls show the same number
+- `at least one 6` means one roll or more is 6
+
+So first, understand what the event is asking.
+
+Then use this method:
+
+1. Find the total number of possible ordered outcomes.
+2. Find the outcomes that satisfy the event.
+3. Count them.
+4. Divide by the total number of outcomes.
 
 Because the die is fair, every ordered outcome has the same probability.
 
-Examples:
+Useful totals:
 
-- For one roll, there are 6 total outcomes.
-- For two rolls, there are 36 total ordered outcomes.
-- For three rolls, there are 216 total ordered outcomes.
+- 1 roll -> 6 outcomes
+- 2 rolls -> 36 ordered outcomes
+- 3 rolls -> 216 ordered outcomes
 
 Example:
 
-- For A2, the sum must be 7.
-- The good ordered pairs are `(1,6)`, `(2,5)`, `(3,4)`, `(4,3)`, `(5,2)`, `(6,1)`.
-- That gives 6 good outcomes out of 36 total.
-- So `P(A2) = 6/36 = 1/6`.
+- `A2` says the sum must be 7
+- That means the good outcomes are `(1,6)`, `(2,5)`, `(3,4)`, `(4,3)`, `(5,2)`, `(6,1)`
+- There are 6 good outcomes
+- There are 36 total outcomes
+- So `P(A2) = 6/36 = 1/6`
 
-You solve the other events in the same way: count the good cases, then divide by the total number of possible ordered outcomes.
+So the whole task is really: understand the condition, count the good outcomes, and divide by the total number of equally likely outcomes.
