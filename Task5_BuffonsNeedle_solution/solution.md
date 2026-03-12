@@ -2,44 +2,65 @@
 
 Consider a needle of length L thrown onto a floor with parallel lines spaced by distance d.
 
-1. Sample space Ω:
-   The sample space is continuous and can be modeled by pairs `(x, θ)`.
+To solve this problem, we first ask what information is enough to describe one throw completely.
 
-2. Parameters for one throw:
-- `x`: distance from the needle center to the nearest line.
-- `θ`: angle between the needle and the lines.
+We need two parameters:
 
-3. Elementary outcome:
-   One elementary outcome is one exact pair `(x, θ)`.
+- `x`: the distance from the center of the needle to the nearest line
+- `θ`: the angle between the needle and the parallel lines
 
-4. Sample space as possible values:
-   Using symmetry, we can restrict to:
+These two parameters determine the outcome of a single throw.
+
+So one elementary outcome can be represented by one exact pair:
+
+`(x, θ)`
+
+This means the sample space is not a list of separate outcomes, but the set of all possible values of these two variables.
+
+Because of symmetry, we do not need to look at all possible positions and all possible angles. It is enough to use:
+
 - `x ∈ [0, d/2]`
 - `θ ∈ [0, π/2]`
 
-   Therefore:
-   `Ω = [0, d/2] × [0, π/2]`
+So the sample space is
 
-5. Why Ω is continuous:
-   The variables `x` and `θ` can take infinitely many real values in intervals, so the sample space is continuous (uncountable), unlike earlier tasks where outcomes were finite or countable lists.
+`Ω = [0, d/2] × [0, π/2]`
+
+This describes all possible throws in the experiment.
+
+The sample space is continuous, not discrete. The reason is that `x` and `θ` are real numbers from intervals, so they can take infinitely many possible values. In the earlier tasks, we could list all outcomes one by one, but here the outcomes fill a whole region instead of forming a finite set.
+
+In other words, each point in this rectangle corresponds to one possible throw of the needle.
 
 Double-check: the outcome variables are correctly identified as `(x, θ)`, the symmetry bounds are `x ∈ [0, d/2]` and `θ ∈ [0, π/2]`, and the sample space is correctly written as `Ω = [0, d/2] × [0, π/2]`.
 
 ## How to solve this problem for dummies
 
-Think of one needle throw as being described by two numbers:
+This task is different from coin, die, or card questions because the result is not a single countable answer.
 
-- `x`: how far the needle center is from the nearest line.
-- `θ`: the angle of the needle.
+When the needle lands, we care about two things:
 
-Because `x` and `θ` can be any real values in intervals, we do not list outcomes one by one like in coin or die tasks.
+- how far its center is from the nearest line
+- what angle it makes with the lines
+
+So one throw is described by two variables:
+
+- `x`: the distance from the needle center to the nearest line
+- `θ`: the angle of the needle
+
+That means one elementary outcome is one pair:
+
+`(x, θ)`
 
 Using symmetry, we only need:
 
-- `x` from 0 to `d/2`
-- `θ` from 0 to `π/2`
+- `x ∈ [0, d/2]`
+- `θ ∈ [0, π/2]`
 
-So the sample space is a rectangle of possible pairs:
+So the sample space is
+
 `Ω = [0, d/2] × [0, π/2]`
 
-That is why this sample space is continuous, not discrete.
+The maximum distance is `d/2` because the center cannot be farther than half the distance between two neighboring lines from the nearest line.
+
+This sample space is continuous because `x` and `θ` can take infinitely many real values, not just a small list of outcomes. That is why Buffon's needle is a geometry-based probability problem.
