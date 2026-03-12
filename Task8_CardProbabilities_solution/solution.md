@@ -49,28 +49,45 @@ Double-check: the denominators 52, 2704, and 2652 match the correct sample space
 
 ## How to solve this problem for dummies
 
-The method is always:
+This task is about card events.
 
-1. Count all possible ordered outcomes.
-2. Count the outcomes that satisfy the event.
-3. Divide good outcomes by total outcomes.
+An event means a group of outcomes with some condition.
 
-The important difference is this:
+For example:
 
-- With replacement: after the first draw, the card goes back into the deck.
-- Without replacement: after the first draw, the card does not go back.
+- `heart` means the card belongs to the hearts suit
+- `king` means the rank is K
+- `both cards are hearts` means first card is a heart and second card is also a heart
+- `same rank` means both cards have the same rank, like `(7♠,7♦)`
 
-Examples:
+The most important idea in this task is the difference between these two experiments:
 
-- For one draw, there are 52 possible outcomes.
-- For two draws with replacement, there are 52 x 52 = 2704 ordered outcomes.
-- For two draws without replacement, there are 52 x 51 = 2652 ordered outcomes.
+- With replacement:
+  after the first draw, the card goes back into the deck.
+  So the second draw still has 52 possibilities.
+
+- Without replacement:
+  after the first draw, the card does not go back.
+  So the second draw has only 51 possibilities.
+
+So first find the total number of ordered outcomes:
+
+- one draw -> 52 outcomes
+- two draws with replacement -> `52 x 52 = 2704`
+- two draws without replacement -> `52 x 51 = 2652`
+
+Then use this method:
+
+1. Understand what the event means.
+2. Count the good outcomes.
+3. Divide by the total number of possible ordered outcomes.
 
 Example:
 
-- For A3 = both cards are hearts without replacement:
-- The first card can be any of 13 hearts.
-- Then 12 hearts remain out of 51 cards.
-- So `P(A3) = (13/52) x (12/51) = 1/17`.
+- `A3` means both cards are hearts without replacement
+- the first card can be any of 13 hearts
+- after that, only 12 hearts remain
+- total possibilities are `52 x 51`
+- so `P(A3) = (13/52) x (12/51) = 1/17`
 
-You solve the other events the same way: count the good cases, then divide by the total number of ordered outcomes.
+So the whole task is really: understand the condition, count the good cases, and be careful about whether the card goes back into the deck or not.
