@@ -10,7 +10,7 @@
     <main class="page">
       <header class="hero">
         <h1>Task 2 - Rolling a Die Simulation</h1>
-        <p>Monte Carlo simulation for ordered outcomes of 1, 2, or 3 fair die rolls.</p>
+        <p>See the ordered sample space first, then compare observed frequencies with the theoretical ones.</p>
       </header>
 
       <section class="panel controls">
@@ -27,7 +27,16 @@
         <button id="runBtn" type="button">Run simulation</button>
       </section>
 
-      <section class="panel summary" id="summary"></section>
+      <section class="panel">
+        <h2>All possible outcomes</h2>
+        <p class="panel-note" id="spaceInfo"></p>
+        <div class="chip-grid" id="sampleSpace"></div>
+      </section>
+
+      <details class="panel summary-panel">
+        <summary>Open summary results</summary>
+        <div id="summary"></div>
+      </details>
 
       <section class="panel" id="tablePanel">
         <h2 id="tableTitle">Results</h2>

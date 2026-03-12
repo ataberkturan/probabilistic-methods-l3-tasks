@@ -39,14 +39,24 @@ function runSimulation() {
 
   const body = document.getElementById("resultsBody");
   body.innerHTML = "";
+  const sampleSpaceEl = document.getElementById("sampleSpace");
+  sampleSpaceEl.innerHTML = "";
 
   const theoretical = 1 / Math.pow(2, tossCount);
   let observedSum = 0;
+
+  document.getElementById("spaceInfo").textContent =
+    `For ${tossCount} toss${tossCount === 1 ? "" : "es"}, there are ${sampleSpace.length} equally likely ordered outcomes. Each one has probability ${theoretical.toFixed(4)}.`;
 
   sampleSpace.forEach((outcome) => {
     const count = counts[outcome];
     const observed = count / trialCount;
     observedSum += observed;
+
+    const chip = document.createElement("span");
+    chip.className = "chip";
+    chip.textContent = outcome;
+    sampleSpaceEl.appendChild(chip);
 
     const row = document.createElement("tr");
     row.innerHTML = `
@@ -63,4 +73,5 @@ function runSimulation() {
 }
 
 document.getElementById("runBtn").addEventListener("click", runSimulation);
+document.getElementById("tossCount").addEventListener("change", runSimulation);
 runSimulation();

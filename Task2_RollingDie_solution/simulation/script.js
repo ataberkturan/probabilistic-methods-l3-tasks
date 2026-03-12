@@ -51,6 +51,8 @@ function runSimulation() {
 
   const outcomes = allOutcomes(rolls);
   const counts = Object.fromEntries(outcomes.map((o) => [o, 0]));
+  const sampleSpaceEl = document.getElementById("sampleSpace");
+  sampleSpaceEl.innerHTML = "";
 
   for (let t = 0; t < trials; t += 1) {
     counts[randomOutcome(rolls)] += 1;
@@ -62,6 +64,14 @@ function runSimulation() {
   const tableTitle = document.getElementById("tableTitle");
   const tablePanel = document.getElementById("tablePanel");
   const topPanel = document.getElementById("topPanel");
+  document.getElementById("spaceInfo").textContent =
+    `For ${rolls} roll${rolls === 1 ? "" : "s"}, there are ${outcomes.length} equally likely ordered outcomes. Each one has probability ${theoretical.toFixed(5)}.`;
+  outcomes.forEach((outcome) => {
+    const chip = document.createElement("span");
+    chip.className = "chip";
+    chip.textContent = outcome;
+    sampleSpaceEl.appendChild(chip);
+  });
 
   if (rolls <= 2) {
     tableTitle.textContent = `All elementary outcomes for ${rolls} roll${rolls === 1 ? "" : "s"}`;
@@ -111,4 +121,5 @@ function runSimulation() {
 }
 
 document.getElementById("runBtn").addEventListener("click", runSimulation);
+document.getElementById("rollCount").addEventListener("change", runSimulation);
 runSimulation();

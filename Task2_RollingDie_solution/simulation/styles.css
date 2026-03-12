@@ -49,6 +49,32 @@ body {
   box-shadow: 0 8px 20px rgba(31, 41, 55, 0.06);
 }
 
+.panel-note {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.chip {
+  padding: 0.5rem 0.72rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fffaf3;
+  font-weight: 600;
+}
+
+.summary-panel summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent);
+}
+
 .controls {
   display: grid;
   grid-template-columns: 1fr 1fr;

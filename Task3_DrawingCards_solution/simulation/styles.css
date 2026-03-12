@@ -44,6 +44,55 @@ h1 {
   margin-top: 0.9rem;
 }
 
+.panel-note {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+}
+
+.chip {
+  padding: 0.48rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #f5fbfa;
+  font-weight: 600;
+}
+
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.65rem;
+}
+
+.example-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fbfefd;
+  padding: 0.8rem;
+}
+
+.example-card strong {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.summary-panel summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
 .controls {
   display: grid;
   grid-template-columns: 1fr 1fr;

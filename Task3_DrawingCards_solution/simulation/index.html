@@ -9,7 +9,7 @@
   <body>
     <main class="container">
       <h1>Task 3 - Drawing Cards Simulation</h1>
-      <p class="subtitle">Ordered pairs from a standard 52-card deck</p>
+      <p class="subtitle">Understand the deck and ordered draws first, then compare observed frequencies with the theoretical ones.</p>
 
       <section class="controls card">
         <label for="mode">Draw mode</label>
@@ -24,10 +24,23 @@
         <button id="runBtn" type="button">Run simulation</button>
       </section>
 
-      <section class="card summary" id="summary"></section>
+      <section class="card">
+        <h2>Deck and sample-space idea</h2>
+        <p class="panel-note" id="spaceInfo"></p>
+        <div class="chip-grid" id="deckView"></div>
+        <h2>Example ordered outcomes</h2>
+        <div class="example-grid" id="exampleOutcomes"></div>
+      </section>
+
+      <details class="card summary-panel">
+        <summary>Open summary results</summary>
+        <div id="summary"></div>
+      </details>
 
       <section class="card">
         <h2>Top observed outcomes</h2>
+        <p class="panel-note">These are the most frequent ordered pairs from the simulation. Compare them with the same theoretical frequency for each elementary outcome.</p>
+        <div class="table-wrap">
         <table>
           <thead>
             <tr>
@@ -39,6 +52,7 @@
           </thead>
           <tbody id="resultBody"></tbody>
         </table>
+        </div>
       </section>
     </main>
 

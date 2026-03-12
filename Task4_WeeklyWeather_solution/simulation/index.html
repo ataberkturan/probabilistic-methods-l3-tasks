@@ -9,7 +9,7 @@
   <body>
     <main class="container">
       <h1>Task 4 - Weekly Weather Simulation</h1>
-      <p class="subtitle">States: S (Sunny), C (Cloudy), R (Rainy)</p>
+      <p class="subtitle">See the weather states and sample-space idea first, then compare observed frequencies with the theoretical ones.</p>
 
       <section class="panel controls">
         <label for="horizon">Observation horizon</label>
@@ -25,10 +25,27 @@
         <button id="runBtn" type="button">Run simulation</button>
       </section>
 
-      <section class="panel" id="summary"></section>
+      <section class="panel">
+        <h2>Weather states and sample-space idea</h2>
+        <p class="panel-note" id="spaceInfo"></p>
+        <div class="chip-grid">
+          <span class="chip">S = Sunny</span>
+          <span class="chip">C = Cloudy</span>
+          <span class="chip">R = Rainy</span>
+        </div>
+        <h2>Example outcomes</h2>
+        <div class="example-grid" id="exampleOutcomes"></div>
+      </section>
+
+      <details class="panel summary-panel">
+        <summary>Open summary results</summary>
+        <div id="summary"></div>
+      </details>
 
       <section class="panel">
         <h2>Top observed outcomes</h2>
+        <p class="panel-note">These are the most frequent simulated outcome sequences for the selected number of days.</p>
+        <div class="table-wrap">
         <table>
           <thead>
             <tr>
@@ -40,6 +57,7 @@
           </thead>
           <tbody id="resultBody"></tbody>
         </table>
+        </div>
       </section>
     </main>
 
