@@ -1,5 +1,19 @@
 # Task 4 - Weekly Weather Observation
 
+## Question
+
+The weather on a given day can be classified into exactly one of the following states: S (Sunny), C (Cloudy), R (Rainy).
+
+The weather is observed once per day for seven consecutive days.
+
+1. Define the sample space Ω1 for the weather observed on one day.
+2. Construct the sample space Ω2 for two consecutive days.
+3. Define the sample space Ω7 describing the weather observed during seven consecutive days.
+4. Determine the number of elementary outcomes in each sample space.
+5. Briefly describe what an elementary outcome represents in the case of a weekly observation.
+
+## Answer
+
 The weather on each day can be exactly one of:
 - S (Sunny)
 - C (Cloudy)

@@ -1,5 +1,32 @@
 # Task 7 - Events and Probabilities in Die Rolling
 
+## Question
+
+Refer to Task 2, where the sample spaces for one, two, and three rolls of a fair six-sided die were defined. Assume the die is fair, so all elementary outcomes are equally likely.
+
+First assign probabilities to all elementary outcomes in Ω1, Ω2, and Ω3.
+
+Then describe the following events as subsets of the sample space and compute their probabilities.
+
+One Die Roll
+- A1: the result is even
+- B1: the result is greater than 4
+- C1: the result is at most 3
+
+Two Die Rolls
+- A2: the sum of the results equals 7
+- B2: both results are the same
+- C2: the sum of the results is at least 10
+
+Three Die Rolls
+- A3: the sum of the results equals 10
+- B3: exactly two rolls give the same number
+- C3: the outcomes contain two twos and one three, in any order
+
+Finally, define one additional event on Ω3 and compute its probability.
+
+## Answer
+
 Refer to Task 2, where the sample spaces for one, two, and three rolls of a fair die were defined.
 
 Because the die is fair, all elementary outcomes in each sample space are equally likely.

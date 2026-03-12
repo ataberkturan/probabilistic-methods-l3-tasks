@@ -1,5 +1,32 @@
 # Task 8 - Events and Probabilities in Card Drawing
 
+## Question
+
+Refer to Task 3, where the sample spaces for drawing cards from a standard 52-card deck were defined. Assume the deck is well-shuffled. In each experiment, every ordered sequence of draws is equally likely, with or without replacement as specified.
+
+First assign probabilities to all elementary outcomes in Ω1, Ω2, and Ω2'.
+
+Then describe the following events as subsets of the sample space and compute their probabilities.
+
+One Card Drawn
+- A1: the card is a heart
+- B1: the card is a king
+- C1: the card is not a face card
+
+Two Cards Drawn (with replacement)
+- A2: both cards are hearts
+- B2: both cards have the same rank
+- C2: at least one card is an ace
+
+Two Cards Drawn (without replacement)
+- A3: both cards are hearts
+- B3: both cards have the same rank
+- C3: one card is a king and the other is a queen, in any order
+
+Finally, define one additional event on Ω2' and compute its probability.
+
+## Answer
+
 Refer to Task 3, where the sample spaces for card drawing were defined.
 
 Assume the deck is well-shuffled, and all ordered outcomes are equally likely in each experiment.

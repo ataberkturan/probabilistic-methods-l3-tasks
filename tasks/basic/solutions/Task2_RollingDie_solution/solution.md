@@ -1,5 +1,19 @@
 # Task 2 - Rolling a Die
 
+## Question
+
+Consider an experiment consisting of rolling a fair six-sided die.
+
+The order of outcomes matters.
+
+1. Define the sample space Ω1 for one roll of the die.
+2. Construct the sample space Ω2 for two consecutive rolls.
+3. Construct the sample space Ω3 for three consecutive rolls.
+4. Determine the number of elementary outcomes in each sample space.
+5. Briefly describe what an elementary outcome represents in this experiment.
+
+## Answer
+
 Consider an experiment consisting of rolling a fair six-sided die, where order matters.
 
 1. Sample space for one roll:

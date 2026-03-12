@@ -1,5 +1,21 @@
 # Task 10 - Events and Probabilities in Buffon's Needle Experiment
 
+## Question
+
+Refer to Task 5, where the sample space Ω of Buffon's needle experiment was defined. A needle of length L is thrown randomly onto a plane with equally spaced parallel lines, and the distance between neighboring lines is d. Assume L <= d. Let X ∈ [0, d/2] be the distance from the needle's center to the nearest line and θ ∈ [0, π/2] the angle between the needle and the lines. Assume X and θ are independent and uniformly distributed on these intervals.
+
+Describe the following events and compute their probabilities.
+
+- A: the needle intersects one of the lines
+- B: the needle does not intersect any line
+- C: the angle between the needle and the lines is smaller than π/6
+- D: the center of the needle falls at a distance less than d/4 from the nearest line
+- E: the needle intersects a line and the angle with the lines is greater than π/4
+
+Finally, define one additional event in this experiment and compute its probability.
+
+## Answer
+
 Refer to Task 5, where the sample space was
 
 `Ω = [0, d/2] × [0, π/2]`

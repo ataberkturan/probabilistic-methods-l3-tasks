@@ -1,5 +1,21 @@
 # Task 9 - Events and Probabilities in Weekly Weather Observation
 
+## Question
+
+Refer to Task 4, where the sample space Ω7 describing the weather during seven consecutive days was defined. Each day can be Sunny (S), Cloudy (C), or Rainy (R). Model the weather as 7 independent days, where each state occurs with probability 1/3.
+
+Describe the following events as subsets of Ω7 and compute their probabilities.
+
+- A: the entire weekend is sunny
+- B: Wednesday, Thursday, and Friday are all rainy
+- C: at least one day during the week is sunny
+- D: no rainy day occurs during the entire week
+- E: exactly two days during the week are sunny
+
+Finally, define one additional event on Ω7 and compute its probability.
+
+## Answer
+
 Refer to Task 4, where Ω7 describes the weather during seven consecutive days.
 
 Assume the 7 days are independent, and each day is:

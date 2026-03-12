@@ -1,5 +1,32 @@
 # Task 6 - Events and Probabilities in Coin Tossing
 
+## Question
+
+Refer to Task 1, where the sample spaces for one, two, and three coin tosses were defined. Assume the coin is fair, so all elementary outcomes are equally likely.
+
+First assign probabilities to all elementary outcomes in Ω1, Ω2, and Ω3.
+
+Then describe the following events as subsets of the sample space and compute their probabilities.
+
+One Coin Toss
+- A1: the result is heads
+- B1: the result is tails
+- C1: the result is not tails
+
+Two Coin Tosses
+- A2: exactly one head occurs
+- B2: at least one head occurs
+- C2: both tosses give the same result
+
+Three Coin Tosses
+- A3: exactly two heads occur
+- B3: at least one tail occurs
+- C3: all three tosses give the same result
+
+Finally, define one additional event on Ω3 and compute its probability.
+
+## Answer
+
 Refer to Task 1, where the sample spaces for one, two, and three fair coin tosses were defined.
 
 Because the coin is fair, all elementary outcomes in each sample space are equally likely.

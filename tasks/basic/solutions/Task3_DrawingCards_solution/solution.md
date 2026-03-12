@@ -1,5 +1,19 @@
 # Task 3 - Drawing Cards
 
+## Question
+
+Consider an experiment consisting of drawing cards from a standard 52-card deck.
+
+The order of outcomes matters. Treat each outcome as an ordered sequence of drawn cards.
+
+1. Define the sample space Ω1 for drawing one card.
+2. Construct the sample space Ω2 for two consecutive draws with replacement.
+3. Construct the sample space Ω2' for two consecutive draws without replacement.
+4. Determine the number of elementary outcomes in both cases.
+5. Briefly describe what an elementary outcome represents in these experiments.
+
+## Answer
+
 Consider an experiment of drawing cards from a standard 52-card deck, where order matters.
 
 Use ranks `A,2,3,4,5,6,7,8,9,10,J,Q,K` and suits `♠,♥,♦,♣`.

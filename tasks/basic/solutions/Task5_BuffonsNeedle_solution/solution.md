@@ -1,5 +1,17 @@
 # Task 5 - Buffon's Needle Experiment
 
+## Question
+
+Consider an experiment in which a needle of length L is thrown randomly onto a floor with equally spaced parallel lines. The distance between neighboring lines is d.
+
+1. Describe the sample space Ω of this experiment.
+2. Identify the parameters that determine the outcome of a single throw.
+3. Represent an elementary outcome using appropriate variables describing the position of the needle relative to the nearest line and the orientation angle of the needle.
+4. Express the sample space Ω as a set of possible values of these variables. You may restrict to x ∈ [0, d/2] and θ ∈ [0, π/2] using symmetry.
+5. Briefly explain why the sample space in this experiment is continuous, unlike the sample spaces in the previous tasks.
+
+## Answer
+
 Consider a needle of length L thrown onto a floor with parallel lines spaced by distance d.
 
 To solve this problem, we first ask what information is enough to describe one throw completely.

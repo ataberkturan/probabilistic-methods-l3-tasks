@@ -1,5 +1,19 @@
 # Task 1 - Coin Tossing
 
+## Question
+
+Consider an experiment consisting of tossing a fair coin.
+
+The order of outcomes matters.
+
+1. Define the sample space Ω1 for one coin toss.
+2. Construct the sample space Ω2 for two coin tosses.
+3. Construct the sample space Ω3 for three coin tosses.
+4. Determine the number of elementary outcomes in each sample space.
+5. Briefly describe what an elementary outcome represents in each case.
+
+## Answer
+
 Consider a fair coin, where order matters.
 
 1. Sample space for one toss:
