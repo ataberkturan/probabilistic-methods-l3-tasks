@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 7 - Die Probability Simulation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Task 7 - Die Probability Simulation</h1>
+      <p class="subtitle">Compare exact probabilities with Monte Carlo estimates.</p>
+
+      <section class="panel controls">
+        <label for="rollCount">Number of rolls</label>
+        <select id="rollCount">
+          <option value="1">1 roll</option>
+          <option value="2">2 rolls</option>
+          <option value="3" selected>3 rolls</option>
+        </select>
+
+        <label for="trialCount">Number of trials</label>
+        <input id="trialCount" type="number" min="1" step="1" value="10000" />
+
+        <button id="runBtn" type="button">Run simulation</button>
+      </section>
+
+      <section class="panel" id="summary"></section>
+
+      <section class="panel">
+        <h2>Event probabilities</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Subset / rule</th>
+              <th>Exact probability</th>
+              <th>Observed frequency</th>
+            </tr>
+          </thead>
+          <tbody id="resultBody"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
