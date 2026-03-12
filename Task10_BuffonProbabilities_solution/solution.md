@@ -76,25 +76,48 @@ Double-check: the hit condition `X <= (L/2) sin(θ)` is used consistently, `B` i
 
 ## How to solve this problem for dummies
 
-Here one throw is not a simple list like `(H,T)` or `(2,5)`.
+This task is different from coin, die, or card questions.
 
-Instead, one throw is described by two numbers:
+In those questions, you count separate outcomes.
+Here, one result is a geometric position of the needle.
+
+So first ask:
+
+What tells us exactly how the needle landed?
+
+We need two numbers:
 
 - `X`: how far the needle center is from the nearest line
 - `θ`: the angle of the needle
 
-So one throw is one point inside a rectangle:
+That means one throw is one point inside a rectangle:
 
 `Ω = [0, d/2] × [0, π/2]`
 
-Main idea:
+So this is the main idea:
 
 - probability = area of the event region / total area of the rectangle
 
-Examples:
+Now what do the events mean?
 
-- For `C`, the only condition is `θ < π/6`, so you just compare angle lengths.
+- `A` means the needle hits a line
+- `B` means it does not hit a line
+- `C` means the angle is small
+- `D` means the center is close to a line
+- `E` means both a hit happens and the angle is larger than `π/4`
+
+Some events are easy:
+
+- For `C`, the only condition is `θ < π/6`, so you compare angle lengths.
 - For `D`, the only condition is `X < d/4`, so you compare distance lengths.
-- For `A`, the hit happens below the curve `X = (L/2) sin(θ)`.
+- For `F`, the only condition is `θ > π/3`, so again you compare angle lengths.
 
-So this task is about geometric regions in the sample space, not counting separate outcomes.
+The harder event is `A`.
+
+The needle hits a line when
+
+`X <= (L/2) sin(θ)`
+
+So for `A`, you do not count outcomes. You look at the region under this curve inside the rectangle.
+
+So the whole task is about understanding which region of the rectangle belongs to the event, then comparing its area with the total area of the sample space.

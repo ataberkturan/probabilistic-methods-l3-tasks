@@ -7,12 +7,12 @@ function uniform(min, max) {
 
 function eventConfig(L, d) {
   return [
-    { name: "A", rule: "X <= (L/2) sin(theta)", exact: (2 * L) / (d * Math.PI), test: (x, theta) => x <= (L / 2) * Math.sin(theta) },
-    { name: "B", rule: "not A", exact: 1 - (2 * L) / (d * Math.PI), test: (x, theta) => x > (L / 2) * Math.sin(theta) },
-    { name: "C", rule: "theta < pi/6", exact: 1 / 3, test: (x, theta) => theta < Math.PI / 6 },
-    { name: "D", rule: "X < d/4", exact: 1 / 2, test: (x, theta) => x < d / 4 },
-    { name: "E", rule: "A and theta > pi/4", exact: (L * Math.sqrt(2)) / (d * Math.PI), test: (x, theta) => x <= (L / 2) * Math.sin(theta) && theta > Math.PI / 4 },
-    { name: "F", rule: "theta > pi/3", exact: 1 / 3, test: (x, theta) => theta > Math.PI / 3 }
+    { name: "A", meaning: "The needle intersects a line. This happens when X <= (L/2) sin(theta).", exact: (2 * L) / (d * Math.PI), test: (x, theta) => x <= (L / 2) * Math.sin(theta) },
+    { name: "B", meaning: "The needle does not intersect a line. This is the opposite of A.", exact: 1 - (2 * L) / (d * Math.PI), test: (x, theta) => x > (L / 2) * Math.sin(theta) },
+    { name: "C", meaning: "The angle is smaller than pi/6.", exact: 1 / 3, test: (x, theta) => theta < Math.PI / 6 },
+    { name: "D", meaning: "The center of the needle is closer than d/4 to the nearest line.", exact: 1 / 2, test: (x, theta) => x < d / 4 },
+    { name: "E", meaning: "The needle intersects a line and the angle is greater than pi/4.", exact: (L * Math.sqrt(2)) / (d * Math.PI), test: (x, theta) => x <= (L / 2) * Math.sin(theta) && theta > Math.PI / 4 },
+    { name: "F", meaning: "The angle is greater than pi/3.", exact: 1 / 3, test: (x, theta) => theta > Math.PI / 3 }
   ];
 }
 
@@ -60,14 +60,17 @@ function runSimulation() {
   const rawTrials = Number(document.getElementById("trialCount").value);
   const trials = Number.isFinite(rawTrials) && rawTrials > 0 ? Math.floor(rawTrials) : 1;
   const summary = document.getElementById("summary");
+  const spaceInfo = document.getElementById("spaceInfo");
 
   if (!Number.isFinite(L) || !Number.isFinite(d) || L <= 0 || d <= 0) {
     summary.textContent = "Invalid input: L and d must be positive numbers.";
+    spaceInfo.textContent = "Enter positive values for L and d to describe the Buffon model.";
     return;
   }
 
   if (L > d) {
     summary.textContent = "Invalid input: use L <= d for this model.";
+    spaceInfo.textContent = "This version assumes L <= d, so the needle is not longer than the distance between lines.";
     return;
   }
 
@@ -84,8 +87,11 @@ function runSimulation() {
     });
   }
 
+  spaceInfo.textContent =
+    `One throw is one point (X, theta) inside the rectangle Ω = [0, d/2] × [0, pi/2]. Here X is the center distance to the nearest line, and theta is the angle of the needle. In this run, L = ${L} and d = ${d}.`;
+
   summary.textContent =
-    `Model: X ~ Uniform[0,d/2], theta ~ Uniform[0,pi/2], independent | Throws: ${trials} | Latest sample: x=${latest.x.toFixed(4)}, theta=${latest.theta.toFixed(4)} rad`;
+    `Model: X ~ Uniform[0,d/2], theta ~ Uniform[0,pi/2], independent | Throws: ${trials} | Latest sample: x=${latest.x.toFixed(4)}, theta=${latest.theta.toFixed(4)} rad (${(latest.theta * 180 / Math.PI).toFixed(2)} deg)`;
 
   const body = document.getElementById("resultBody");
   body.innerHTML = "";
@@ -95,9 +101,9 @@ function runSimulation() {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${event.name}</td>
-      <td>${event.rule}</td>
+      <td>${event.meaning}</td>
       <td>${event.exact.toFixed(6)}</td>
-      <td>${observed.toFixed(6)}</td>
+      <td>${counts[index]} / ${trials} = ${observed.toFixed(6)}</td>
     `;
     body.appendChild(row);
   });
